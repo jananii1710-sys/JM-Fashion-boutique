@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jm Fashion boutique — Fashion & Beauty</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Custom CSS -->
+  
+    <link rel="stylesheet" href="Assets/Css/style.css" />
+</head>
+<body>
+
+<!-- ======= PRELOADER ======= -->
+<div id="preloader">
+  <div class="preloader-logo">Jm Fashion boutique</div>
+</div>
+
+<!-- ======= TOAST WRAPPER ======= -->
+<div class="toast-wrap" id="toastWrap"></div>
+
+<!-- ======= CART OVERLAY & SIDEBAR ======= -->
+<div class="cart-overlay" id="cartOverlay"></div>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <span class="cart-title">My Bag</span>
+    <button class="cart-close" id="cartClose"><i class="bi bi-x-lg"></i></button>
+  </div>
+  <div class="cart-items" id="cartItems"></div>
+  <div class="cart-footer">
+    <div class="cart-total"><span>Total</span><span id="cartTotal">₹0</span></div>
+    <button class="btn-primary-custom w-100 text-center" id="checkoutBtn">Proceed to Checkout</button>
+  </div>
+</div>
+
+<!-- ======= ANNOUNCEMENT BAR ======= -->
+<div style="background:var(--deep-rose);color:white;text-align:center;padding:.55rem;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;">
+  ✦ Free Shipping on Orders above ₹999 &nbsp;|&nbsp; Use code <strong>JM20</strong> for 20% Off ✦
+</div>
+
+<!-- ======= NAVBAR ======= -->
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="#">JM</a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="#dresses">Dresses</a></li>
+        <li class="nav-item"><a class="nav-link" href="#beauty">Beauty</a></li>
+        <li class="nav-item"><a class="nav-link" href="#collections">Collections</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sale">Sale</a></li>
+      </ul>
+      <div class="nav-icons d-flex align-items-center gap-3">
+        <a href="#"><i class="bi bi-search"></i></a>
+        <a href="#"><i class="bi bi-person"></i></a>
+        <a href="#" class="position-relative" id="cartIcon">
+          <i class="bi bi-bag"></i>
+          <span class="cart-badge" style="display:none;">0</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ======= HERO ======= -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <span class="hero-tag">New Season 2025</span>
+        <h1 class="hero-title">Dress for the <em>life you love</em></h1>
+        <p class="hero-sub">Curated fashion & beauty essentials — from runway-inspired dresses to luxe skincare that transforms your routine.</p>
+        <div class="hero-cta">
+          <a href="#dresses" class="btn-primary-custom">Shop Dresses</a>
+          <a href="#beauty" class="btn-outline-custom">Beauty Edit</a>
+        </div>
+      </div>
+      <div class="col-lg-6 d-none d-lg-block">
+        <div class="hero-collage">
+          <!-- SVG placeholder cards since we use local image folders -->
+          <div class="collage-card c1" style="width:800px; height:500px;overflow:hidden;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.2);">
+            <img src="Assets/images/66002db8f1d5e9e710cfadada5fac1f7.jpg" alt="Collage Image 1" style="width:100%;height:100%;object-fit:cover;filter:brightness(0.9) contrast(1.1);">
+
+          </div>
+    
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= CATEGORY STRIP ======= -->
+<div class="category-strip">
+  <div class="container">
+    <div class="row g-3">
+      <div class="col-6 col-md-3 fade-up">
+        <a href="#dresses" class="cat-card">
+            <img src="Assets/images/66002db8f1d5e9e710cfadada5fac1f7.jpg" alt="Dresses" style="width:100%;height:500px;;object-fit:cover;border-radius:10px;">
+          <div class="cat-name">Dresses</div>
+          <div class="cat-count">48 styles</div>
+        </a>
+      </div>
+      <div class="col-6 col-md-3 fade-up">
+        <a href="#beauty" class="cat-card">
+            <img src="Assets/images/makeup.jpg" alt="Makeup" style="width:100%;height:500px;object-fit:cover;border-radius:10px;">
+          
+          <div class="cat-name">Makeup</div>
+          <div class="cat-count">120 products</div>
+        </a>
+      </div>
+      <div class="col-6 col-md-3 fade-up">
+        <a href="#beauty" class="cat-card">
+            <img src="Assets/images/skin catr pic.jpg" alt="Skincare" style="width:100%;height:500px;object-fit:cover;border-radius:10px;">
+          <div class="cat-name">Skincare</div>
+          <div class="cat-count">85 items</div>
+        </a>
+      </div>
+      <div class="col-6 col-md-3 fade-up">
+        <a href="#dresses" class="cat-card">
+            <img src="Assets/images/accessiries.jpg" alt="Accessories" style="width:100%;height:500px;object-fit:cover;border-radius:10px;">
+          <div class="cat-name">Accessories</div>
+          <div class="cat-count">60 picks</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ======= DRESSES SECTION ======= -->
+<section class="products-section" id="dresses">
+  <div class="container">
+    <div class="row mb-4 align-items-end">
+      <div class="col-lg-6">
+        <span class="section-label fade-up">New Arrivals</span>
+        <h2 class="section-title fade-up">The Dress <em>Edit</em></h2>
+      </div>
+      <div class="col-lg-6">
+        <div class="filter-tabs justify-content-lg-end fade-up">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="casual">Casual</button>
+          <button class="filter-btn" data-filter="formal">Formal</button>
+          <button class="filter-btn" data-filter="party">Party</button>
+          <button class="filter-btn" data-filter="summer">Summer</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4" id="collections">
+      <!-- Dress 1 -->
+      <div class="col-6 col-md-4 col-lg-3 fade-up">
+        <div class="product-card" data-cat="Traditional">
+          <div class="product-img-wrap">
+            <img src="Assets/images/saree pic.jpg" alt="saree">
+            <span class="product-badge new">New</span>
+            <div class="product-actions">
+              <button class="action-btn" onclick="toggleWishlist('d1',this)" title="Wishlist"><i class="bi bi-heart"></i></button>
+              <button class="action-btn" title="Quick View"><i class="bi bi-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">Traditional</div>
+            <div class="product-name">Saree</div>
+            <div class="product-stars">★★★★★ <span style="color:var(--muted);font-size:.75rem;">(42)</span></div>
+            <div class="product-price">
+              <span class="price-current">₹2,199</span>
+              <span class="price-old">₹2,999</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart('d1','Linen Wrap Midi Dress',2199,'👗')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dress 2 -->
+      <div class="col-6 col-md-4 col-lg-3 fade-up">
+        <div class="product-card" data-cat="Traditional">
+          <div class="product-img-wrap">
+            <img src="Assets/images/lehanka pic.jpg" alt="Lehanka pic">
+            <span class="product-badge">Sale</span>
+            <div class="product-actions">
+              <button class="action-btn" onclick="toggleWishlist('d2',this)"><i class="bi bi-heart"></i></button>
+              <button class="action-btn"><i class="bi bi-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">Traditional</div>
+            <div class="product-name">Lehanka</div>
+            <div class="product-stars">★★★★☆ <span style="color:var(--muted);font-size:.75rem;">(28)</span></div>
+            <div class="product-price">
+              <span class="price-current">₹4,499</span>
+              <span class="price-old">₹6,500</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart('d2','Crepe Column Evening Dress',4499,'🖤')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dress 3 -->
+      <div class="col-6 col-md-4 col-lg-3 fade-up">
+        <div class="product-card" data-cat="party">
+          <div class="product-img-wrap">
+            <img src="Assets/images/sahara suit pic.jpg" alt="Sahara suit">
+            <span class="product-badge new">New</span>
+            <div class="product-actions">
+              <button class="action-btn" onclick="toggleWishlist('d3',this)"><i class="bi bi-heart"></i></button>
+              <button class="action-btn"><i class="bi bi-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">Trendy</div>
+            <div class="product-name">Sahara Suit</div>
+            <div class="product-stars">★★★★★ <span style="color:var(--muted);font-size:.75rem;">(67)</span></div>
+            <div class="product-price">
+              <span class="price-current">₹1,899</span>
+              <span class="price-old">₹2,499</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart('d3','Floral Ruffle Maxi Dress',1899,'🌸')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dress 4 -->
+      <div class="col-6 col-md-4 col-lg-3 fade-up">
+        <div class="product-card" data-cat="party">
+          <div class="product-img-wrap">
+            <img src="Assets/images/midi dress.jpg" alt="Midi dress">
+            <div class="product-actions">
+              <button class="action-btn" onclick="toggleWishlist('d4',this)"><i class="bi bi-heart"></i></button>
+              <button class="action-btn"><i class="bi bi-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">Party</div>
+            <div class="product-name">Maxi Dress</div>
+            <div class="product-stars">★★★★★ <span style="color:var(--muted);font-size:.75rem;">(19)</span></div>
+            <div class="product-price">
+              <span class="price-current">₹3,299</span>
+              <span class="price-old">₹4,200</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart('d4','Sequin Slip Midi Dress',3299,'💜')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      
+    
+</section>
+
+<!-- ======= PROMO BANNER ======= -->
+<section class="promo-banner" id="sale">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-7">
+        <div class="promo-badge fade-up">Limited Offer</div>
+        <h2 class="promo-title fade-up">End of Season <em>Sale</em><br>Up to 50% Off</h2>
+        <p class="promo-desc fade-up">Grab your favourite pieces before they're gone. Our biggest sale of the year — shop now and elevate your wardrobe.</p>
+        <div class="countdown fade-up">
+          <div class="count-box">
+            <span class="count-num" id="cdHours">00</span>
+            <span class="count-label">Hours</span>
+          </div>
+          <div class="count-box">
+            <span class="count-num" id="cdMins">00</span>
+            <span class="count-label">Mins</span>
+          </div>
+          <div class="count-box">
+            <span class="count-num" id="cdSecs">00</span>
+            <span class="count-label">Secs</span>
+          </div>
+        </div>
+        <a href="#dresses" class="btn-primary-custom fade-up" style="background:var(--rose);border-color:var(--rose);color:var(--charcoal);">Shop the Sale</a>
+      </div>
+      <div class="col-lg-5 text-center mt-4 mt-lg-0 fade-up">
+        <div style="font-size:8rem;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.3));"><img src="Assets/images/discount.jpg" alt="" style="height: 300px;width: 300px;;"></div>
+        <div style="font-family:var(--font-display);font-size:5rem;color:var(--rose);font-weight:300;margin-top:-1rem;">50%</div>
+        <div style="color:rgba(255,255,255,0.6);font-size:.85rem;letter-spacing:.15em;text-transform:uppercase;">off selected items</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= BEAUTY SECTION ======= -->
+<section class="beauty-section" id="beauty">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-label fade-up">Beauty Essentials</span>
+      <h2 class="section-title fade-up">Glow. <em>Radiate.</em> Shine.</h2>
+      <p class="fade-up" style="color:var(--muted);max-width:500px;margin:0 auto;margin-top:.5rem;">From dewy skincare rituals to bold makeup statements — your beauty arsenal, curated.</p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Beauty 1 -->
+      <div class="col-6 col-md-4 col-lg-3 fade-up">
+        <div class="product-card" data-cat="skincare">
+          <div class="product-img-wrap">
+<img src="Assets/images/rose glow serum.jpg" alt="serum
+">            <span class="product-badge new">Bestseller</span>
+            <div class="product-actions">
+              <button class="action-btn" onclick="toggleWishlist('b1',this)"><i class="bi bi-heart"></i></button>
+              <button class="action-btn"><i class="bi bi-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">Skincare</div>
+            <div class="product-name">Rose Glow Serum 30ml</div>
+            <div class="product-stars">★★★★★ <span style="color:var(--muted);font-size:.75rem;">(118)</span></div>
+            <div class="product-price">
+              <span class="price-current">₹1,299</span>
+              <span class="price-old">₹1,800</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart('b1','Rose Glow Serum 30ml',1299,'🧴')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beauty 2 -->
+      <div class="col-6 col-md-4 col-lg-3 fade-up">
+        <div class="product-card" data-cat="makeup">
+          <div class="product-img-wrap">
+<img src="Assets/images/lipstic pic.jpg" alt="">            <div class="product-actions">
+              <button class="action-btn" onclick="toggleWishlist('b2',this)"><i class="bi bi-heart"></i></button>
+              <button class="action-btn"><i class="bi bi-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">Makeup</div>
+            <div class="product-name">Velvet Matte Lipstick</div>
+            <div class="product-stars">★★★★★ <span style="color:var(--muted);font-size:.75rem;">(89)</span></div>
+            <div class="product-price">
+              <span class="price-current">₹699</span>
+              <span class="price-old">₹999</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart('b2','Velvet Matte Lipstick',699,'💄')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+     
+
+      <!-- Beauty 4 -->
+      <div class="col-6 col-md-4 col-lg-3 fade-up">
+        <div class="product-card" data-cat="makeup">
+          <div class="product-img-wrap">
+           <img src="Assets/images/foundation.jpg" alt="foundation">
+            <div class="product-actions">
+              <button class="action-btn" onclick="toggleWishlist('b4',this)"><i class="bi bi-heart"></i></button>
+              <button class="action-btn"><i class="bi bi-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">Makeup</div>
+            <div class="product-name">Foundation</div>
+            <div class="product-stars">★★★★★ <span style="color:var(--muted);font-size:.75rem;">(73)</span></div>
+            <div class="product-price">
+              <span class="price-current">₹1,599</span>
+              <span class="price-old">₹2,200</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart('b4','Foundation',1599,'✨')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beauty 5 -->
+      <div class="col-6 col-md-4 col-lg-3 fade-up">
+        <div class="product-card" data-cat="fragrance">
+          <div class="product-img-wrap">
+<img src="Assets/images/mascara.jpg" alt="mascara">            <span class="product-badge new">New</span>
+            <div class="product-actions">
+              <button class="action-btn" onclick="toggleWishlist('b5',this)"><i class="bi bi-heart"></i></button>
+              <button class="action-btn"><i class="bi bi-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">Makeup</div>
+            <div class="product-name">Mascara</div>
+            <div class="product-stars">★★★★★ <span style="color:var(--muted);font-size:.75rem;">(44)</span></div>
+            <div class="product-price">
+              <span class="price-current">₹2,899</span>
+              <span class="price-old">₹3,800</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart('b5','Mascara',2899,'🌸')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beauty 6 -->
+      <div class="col-6 col-md-4 col-lg-3 fade-up">
+        <div class="product-card" data-cat="skincare">
+          <div class="product-img-wrap">
+<img src="Assets/images/moistairasure.jpg" alt="Moisturizer">            <span class="product-badge">Sale</span>
+            <div class="product-actions">
+              <button class="action-btn" onclick="toggleWishlist('b6',this)"><i class="bi bi-heart"></i></button>
+              <button class="action-btn"><i class="bi bi-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">Skincare</div>
+            <div class="product-name">Moisturizer</div>
+            <div class="product-stars">★★★★☆ <span style="color:var(--muted);font-size:.75rem;">(91)</span></div>
+            <div class="product-price">
+              <span class="price-current">₹999</span>
+              <span class="price-old">₹1,500</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart('b6','Moisturizer',999,'💧')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beauty 7 -->
+      <div class="col-6 col-md-4 col-lg-3 fade-up">
+        <div class="product-card" data-cat="makeup">
+          <div class="product-img-wrap">
+            <img src="Assets/images/kajal pic.jpg" alt="kajal">
+            <span class="product-badge">Sale</span>
+            <div class="product-actions">
+              <button class="action-btn" onclick="toggleWishlist('b7',this)"><i class="bi bi-heart"></i></button>
+              <button class="action-btn"><i class="bi bi-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">Makeup</div>
+            <div class="product-name">Kohl Kajal & Liner Set</div>
+            <div class="product-stars">★★★★★ <span style="color:var(--muted);font-size:.75rem;">(107)</span></div>
+            <div class="product-price">
+              <span class="price-current">₹449</span>
+              <span class="price-old">₹650</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart('b7','Kohl Kajal & Liner Set',449,'👁️')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beauty 8 -->
+      <div class="col-6 col-md-4 col-lg-3 fade-up">
+        <div class="product-card" data-cat="haircare">
+          <div class="product-img-wrap">
+            <img src="Assets/images/makeup.jpg" alt="Argan Oil Hair Serum">
+            <span class="product-badge new">New</span>
+            <div class="product-actions">
+              <button class="action-btn" onclick="toggleWishlist('b8',this)"><i class="bi bi-heart"></i></button>
+              <button class="action-btn"><i class="bi bi-eye"></i></button>
+            </div>
+          </div>
+          <div class="product-info">
+            <div class="product-cat">Makeup</div>
+            <div class="product-name">Eye Shadow Palette</div>
+            <div class="product-stars">★★★★☆ <span style="color:var(--muted);font-size:.75rem;">(63)</span></div>
+            <div class="product-price">
+              <span class="price-current">₹749</span>
+              <span class="price-old">₹1,050</span>
+            </div>
+            <button class="add-cart-btn" onclick="addToCart('b8','Eye Shadow Palette',749,'💆')">Add to Bag</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= TESTIMONIALS ======= -->
+<section class="testimonials-section">
+  <div class="container">
+    <div class="text-center mb-5">
+      <span class="section-label fade-up">Reviews</span>
+      <h2 class="section-title fade-up">Loved by <em>thousands</em></h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4 fade-up">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote-text">"The linen wrap dress is absolutely stunning. The fabric is so soft and the cut is incredibly flattering. I've had so many compliments!"</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">P</div>
+            <div>
+              <div class="reviewer-name">Priya Sharma</div>
+              <div class="reviewer-tag">Verified Buyer · Mumbai</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 fade-up">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote-text">"The Rose Glow Serum is a game changer. My skin has never looked better — it's dewy and radiant. Will 100% repurchase!"</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">A</div>
+            <div>
+              <div class="reviewer-name">Ananya Reddy</div>
+              <div class="reviewer-tag">Verified Buyer · Bangalore</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 fade-up">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p class="quote-text">"Fast delivery, beautiful packaging, and the sequin dress fit like a dream. This is my go-to shop for every occasion now."</p>
+          <div class="reviewer">
+            <div class="reviewer-avatar">M</div>
+            <div>
+              <div class="reviewer-name">Megha Joshi</div>
+              <div class="reviewer-tag">Verified Buyer · Delhi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======= NEWSLETTER ======= -->
+<section class="newsletter-section">
+  <div class="container">
+    <div class="newsletter-inner fade-up">
+      <span class="section-label">Stay Connected</span>
+      <h2 class="section-title">Join the <em>Jm Fashion boutique</em> Circle</h2>
+      <p style="color:var(--muted);margin-top:.5rem;">Get first access to new arrivals, exclusive offers & beauty tips delivered to your inbox.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" placeholder="Your email address" required />
+        <button type="submit">Subscribe</button>
+      </form>
+      <p style="font-size:.75rem;color:var(--muted);margin-top:.75rem;">No spam, ever. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ======= FOOTER ======= -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-brand">Jm Fashion boutique</div>
+        <p class="footer-tagline">Where fashion meets beauty — curated for the modern Indian woman.</p>
+        <div class="social-row">
+          <a href="#" class="social-btn"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-pinterest"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="social-btn"><i class="bi bi-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <div class="footer-heading">Shop</div>
+        <ul class="footer-links">
+          <li><a href="#dresses">Dresses</a></li>
+          <li><a href="#beauty">Skincare</a></li>
+          <li><a href="#beauty">Makeup</a></li>
+          <li><a href="#beauty">Fragrance</a></li>
+          <li><a href="#sale">Sale</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-2 col-md-3 col-6">
+        <div class="footer-heading">Help</div>
+        <ul class="footer-links">
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="footer-heading">Contact</div>
+        <ul class="footer-links">
+          <li><a href="mailto:hello@Jm Fashion boutique.in"><i class="bi bi-envelope me-2"></i>hello@Jm Fashion boutique.in</a></li>
+          <li><a href="tel:+918001234567"><i class="bi bi-telephone me-2"></i>+91 800 123 4567</a></li>
+          <li><a href="#"><i class="bi bi-geo-alt me-2"></i>Coimbatore, Tamil Nadu</a></li>
+        </ul>
+        <div style="margin-top:1.5rem;display:flex;gap:.5rem;flex-wrap:wrap;">
+          <img src="https://img.shields.io/badge/Visa-1A1F71?style=for-the-badge&logo=visa&logoColor=white" alt="Visa" style="height:24px;border-radius:3px;" />
+          <img src="https://img.shields.io/badge/Mastercard-EB001B?style=for-the-badge&logo=mastercard&logoColor=white" alt="Mastercard" style="height:24px;border-radius:3px;" />
+          <img src="https://img.shields.io/badge/UPI-5F259F?style=for-the-badge&logo=googlepay&logoColor=white" alt="UPI" style="height:24px;border-radius:3px;" />
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Jm Fashion boutique. All rights reserved. Made with 💗 in India.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Custom JS -->
+<script src="Assets/Js/main.js"></script>
+
+</body>
+</html>
